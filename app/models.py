@@ -21,6 +21,7 @@ class Tarea(Base):
     descripcion = Column(String, index=True)
     fecha_vencimiento = Column(Date, index=True)
     activa = Column(Boolean, default=True)
+    owner_id = Column(Integer, ForeignKey("users.id"))
 
     owner = relationship("User", back_populates="tareas")
 
