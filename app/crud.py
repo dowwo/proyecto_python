@@ -38,7 +38,7 @@ def delete_user_by_id(db: Session, user_id: int):
 
 # Obtener tarea por id
 def get_tarea(db: Session, user_id: int, activa: bool, skip: int = 0, limit: int = 100):
-    return db.query(models.Tarea).filter(models.Tarea.owner_id == user_id, models.Tarea.activa == activa).offset(skip).limit(limit).first()
+    return db.query(models.Tarea).filter(models.Tarea.owner_id == user_id).offset(skip).limit(limit).first()
 
 
 # Función que devuelve una lista de tareas

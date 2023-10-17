@@ -72,6 +72,7 @@ def create_tarea(tarea: schemas.TareaCreate, user_id: int, db: Session = Depends
 # Respuesta a la solicitud GET para listar todas las tareas
 @app.get("/tareas/", response_model=List[schemas.Tarea])
 def read_tareas(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    # ESTE DEVUELVE EN FALSE LO QUE DEBE SER TRUE
     tareas = crud.get_tareas(db, skip=skip, limit=limit)
     return tareas
 
@@ -87,13 +88,31 @@ def read_tareas(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
        
 #     return tareas
 
-@app.get("/tareas/{user_id}", response_model=schemas.Tarea)
-def read_tareas_by_user(user_id: int, skip: int = 0, limit: int = 100, activa: bool = None, db: Session = Depends(get_db)):
-    if activa is not None:
-        tareas = db.query(models.Tarea).filter(models.Tarea.owner_id == user_id, models.Tarea.activa == activa).offset(skip).limit(limit).all()
-    else:
-        tareas = db.query(models.Tarea).filter(models.Tarea.owner_id == user_id).offset(skip).limit(limit).all()
-    if not tareas:
-        raise HTTPException(status_code=404, detail="No existen tareas para este usuario")
+# @app.get("/tareas/{user_id}", response_model=schemas.Tarea)
+# def read_tareas_by_user(user_id: int, activa: bool = False, skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+#     if activa is False: # False
+#         tareas = crud.get_tarea(db, user_id=user_id, activa=False, skip=skip, limit=limit)
+#     else: # True
+#         tareas = crud.get_tarea(db, user_id=user_id, activa=True, skip=skip, limit=limit)  
+#     if not tareas:
+#         raise HTTPException(status_code=404, detail="No existen tareas para este usuario")
        
-    return tareas
+#     return tareas
+
+# @app.get("/tareas/{user_id}", response_model=List[schemas.Tarea])
+# def read_tareas(user_id: int, activa: bool, skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    
+#     tareas = crud.get_tareas(db, skip=skip, limit=limit)
+#     return tareas
+
+
+@app.get("/tareas/{user_id}")
+async def read_tareas(user_id: int, activa: bool = False, skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    if activa:
+        return db.query(models.Tarea).filter(models.Tarea.activa == True, models.Tarea.owner_id == user_id).offset(skip).limit(limit).all()
+    else:
+        return db.query(models.Tarea).filter(models.Tarea.activa == False, models.Tarea.owner_id == user_id).offset(skip).limit(limit).all()
+
+
+        
+
