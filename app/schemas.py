@@ -13,6 +13,9 @@ class TareaBase(BaseModel):
 class TareaCreate(TareaBase):
     pass
 
+class TareaUpdate(BaseModel):
+    activa: bool
+
 class Tarea(TareaBase):
     id: int
 
