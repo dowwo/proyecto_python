@@ -13,8 +13,11 @@ class TareaBase(BaseModel):
 class TareaCreate(TareaBase):
     pass
 
-class TareaUpdate(BaseModel):
+class TareaUpdateEstado(BaseModel):
     activa: bool
+
+class TareaDelete(BaseModel):
+    detail: str
 
 class Tarea(TareaBase):
     id: int
@@ -30,7 +33,7 @@ class UserCreate(UserBase):
     password: str
 
 class UserUpdate(UserBase):
-    pass
+    hashed_password: str
 
 # Para esta respuesta hay que usar BaseModel, ya que si usamos UserBase
 # Ya devuelve un email en la respuesta, que no necesitamos al eliminar
