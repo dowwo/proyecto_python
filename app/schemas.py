@@ -22,7 +22,7 @@ class TareaDelete(BaseModel):
 class Tarea(TareaBase):
     id: int
 
-    class Config:
+    class ConfigDict:
         from_attributes = True
 
 class UserBase(BaseModel):
@@ -47,7 +47,7 @@ class User(UserBase):
     # Usuario va abajo de Tarea ya que python no reconoce la clase por el orden de ejecución
     tareas: List[Tarea] = []
 
-    class Config:
+    class ConfigDict:
         
         from_attributes = True
     
