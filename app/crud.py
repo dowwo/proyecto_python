@@ -68,7 +68,7 @@ def get_tareas(db: Session, user_id: int, activa: bool, skip: int = 0, limit: in
 
 # Función para crear una nueva tarea a un usuario
 def create_user_tarea(db: Session, tarea: schemas.TareaCreate, user_id: int):
-    db_tarea = models.Tarea(**tarea.dict(), owner_id=user_id)
+    db_tarea = models.Tarea(**tarea.model_dump(), owner_id=user_id)
     db.add(db_tarea)
     db.commit()
     db.refresh(db_tarea)
@@ -79,7 +79,7 @@ def update_user_tarea(db: Session, tarea_id: int, tarea_update: schemas.TareaBas
     db_tarea = db.query(models.Tarea).filter(models.Tarea.id == tarea_id).first()
     if db_tarea is None:
         return None
-    for field, value in tarea_update.dict().items():
+    for field, value in tarea_update.model_dump().items():
         setattr(db_tarea, field, value)
     db.commit()
     db.refresh(db_tarea)
