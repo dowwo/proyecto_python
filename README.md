@@ -15,16 +15,16 @@ https://fastapi.tiangolo.com/tutorial/sql-databases/ y a la rúbrica de evaluaci
 
 - [@dowwo](https://www.github.com/dowwo)
 
-░░░░░░░█▐▓▓░████▄▄▄█▀▄▓▓▓▌█                                
-░░░░░▄█▌▀▄▓▓▄▄▄▄▀▀▀▄▓▓▓▓▓▌█                         
-░░░▄█▀▀▄▓█▓▓▓▓▓▓▓▓▓▓▓▓▀░▓▌█                      
-░░█▀▄▓▓▓███▓▓▓███▓▓▓▄░░▄▓▐█▌                    
-░█▌▓▓▓▀▀▓▓▓▓███▓▓▓▓▓▓▓▄▀▓▓▐█                     
-▐█▐██▐░▄▓▓▓▓▓▀▄░▀▓▓▓▓▓▓▓▓▓▌█▌                   
-█▌███▓▓▓▓▓▓▓▓▐░░▄▓▓███▓▓▓▄▀▐█                     
-█▐█▓▀░░▀▓▓▓▓▓▓▓▓▓██████▓▓▓▓▐█                     
-▌▓▄▌▀░▀░▐▀█▄▓▓██████████▓▓▓▌█▌                   
-▌▓▓▓▄▄▀▀▓▓▓▀▓▓▓▓▓▓▓▓█▓█▓█▓▓▌█▌                   
+░░░░░░░█▐▓▓░████▄▄▄█▀▄▓▓▓▌█                    
+░░░░░▄█▌▀▄▓▓▄▄▄▄▀▀▀▄▓▓▓▓▓▌█                    
+░░░▄█▀▀▄▓█▓▓▓▓▓▓▓▓▓▓▓▓▀░▓▌█                    
+░░█▀▄▓▓▓███▓▓▓███▓▓▓▄░░▄▓▐█▌                   
+░█▌▓▓▓▀▀▓▓▓▓███▓▓▓▓▓▓▓▄▀▓▓▐█                   
+▐█▐██▐░▄▓▓▓▓▓▀▄░▀▓▓▓▓▓▓▓▓▓▌█▌                  
+█▌███▓▓▓▓▓▓▓▓▐░░▄▓▓███▓▓▓▄▀▐█                  
+█▐█▓▀░░▀▓▓▓▓▓▓▓▓▓██████▓▓▓▓▐█                  
+▌▓▄▌▀░▀░▐▀█▄▓▓██████████▓▓▓▌█▌                 
+▌▓▓▓▄▄▀▀▓▓▓▀▓▓▓▓▓▓▓▓█▓█▓█▓▓▌█▌                 
 █▐▓▓▓▓▓▓▄▄▄▓▓▓▓▓▓█▓█▓█▓█▓▓▓▐█                  
 
 
@@ -33,13 +33,13 @@ https://fastapi.tiangolo.com/tutorial/sql-databases/ y a la rúbrica de evaluaci
 La estructura del proyecto es la siguiente:
 proyecto_python
 └── app
-    ├── __init__.py
-    ├── crud.py
-    ├── database.py
-    ├── main.py
-    ├── models.py
-    ├── schemas.py
-    └── test_main.py
+    ├── __init__.py                    
+    ├── crud.py                        
+    ├── database.py                    
+    ├── main.py                        
+    ├── models.py                      
+    ├── schemas.py                     
+    └── test_main.py                   
 
 Se recomienda utilizar un entorno virtual:
 Para crear un entorno virtual se utiliza el siguiente comando:
