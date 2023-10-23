@@ -1,7 +1,8 @@
 # Proyecto Curso Python 2023
 
 Este es un proyecto que abarca los conocimientos adquiridos durante el desarrollo del curso. 
-Se ha desarrollado en base a la rúbrica de evaluación, con los siguientes items a calificar:
+Se ha desarrollado en base al tutorial de FastAPI:
+https://fastapi.tiangolo.com/tutorial/sql-databases/ y a la rúbrica de evaluación, con los siguientes items a calificar:
 - Creación de Tareas
 - Visualización de Tareas
 - Edición y Eliminación de Tareas
