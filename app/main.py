@@ -17,7 +17,11 @@ def get_db():
         yield db
     finally:
         db.close()
-        
+
+@app.get("/")
+async def read_main():
+    return {"msg": "Hello World"}
+
 # Respuesta a una solicitud POST para crear un usuario
 @app.post("/crear_usuario/", response_model=schemas.User)
 # Recibe un email
@@ -69,18 +73,18 @@ def delete_user(user_id: int, db: Session = Depends(get_db)):
 # endpoint POST para crear tarea
 @app.post("/crear_tareas/", response_model=schemas.Tarea)
 def create_tarea(tarea: schemas.TareaCreate, user_id: int, db: Session = Depends(get_db)):
-    db_tarea = models.Tarea(**tarea.dict(), owner_id=user_id)
+    db_tarea = models.Tarea(**tarea.model_dump(), owner_id=user_id)
     db.add(db_tarea)
     db.commit()
     db.refresh(db_tarea)
     return db_tarea
     
 # Respuesta a la solicitud GET para listar todas las tareas
-@app.get("/ver_tareas/", response_model=List[schemas.Tarea])
-def read_tareas(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    # ESTE DEVUELVE EN FALSE LO QUE DEBE SER TRUE
-    tareas = crud.get_tareas(db, skip=skip, limit=limit)
-    return tareas
+# @app.get("/ver_tareas/", response_model=List[schemas.Tarea])
+# def read_tareas(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    
+#     tareas = crud.get_tareas(db, skip=skip, limit=limit)
+#     return tareas
 
 # Respuesta a solicitud GET para mostrar tareas por True o False
 # ESTA ES LA ANTERIOR
@@ -94,10 +98,10 @@ def read_tareas(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
 
 # Respuesta a solicitud GET para mostrar tareas por True o False
 @app.get("/buscar_tareas/{user_id}")
-def read_tareas(user_id: int, activa: bool,db: Session = Depends(get_db)):
+def buscar_tareas(user_id: int, activa: bool,db: Session = Depends(get_db)):
     db_tarea = crud.get_tareas(db, user_id, activa)
-    if db_tarea is None:
-        return HTTPException(status_code=404, detail="Tarea no encontrada")
+    # if db_tarea is None:
+    #     return HTTPException(status_code=404, detail="Tarea no encontrada")
     return db_tarea
 
 # endpoint PUT para actualizar el estado de una tarea
