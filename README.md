@@ -31,7 +31,7 @@ https://fastapi.tiangolo.com/tutorial/sql-databases/ y a la rúbrica de evaluaci
 ## Deployment
 
 La estructura del proyecto es la siguiente:
-proyecto_python
+proyecto_python                        
 └── app                                
     ├── __init__.py                    
     ├── crud.py                        
