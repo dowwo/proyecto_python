@@ -33,13 +33,13 @@ https://fastapi.tiangolo.com/tutorial/sql-databases/ y a la rúbrica de evaluaci
 La estructura del proyecto es la siguiente:
 proyecto_python                        
 └── app                                
- ├── __init__.py                    
- ├── crud.py                        
- ├── database.py                    
- ├── main.py                        
- ├── models.py                      
- ├── schemas.py                     
- └── test_main.py                   
+ㅤ├── __init__.py                    
+ㅤ├── crud.py                        
+ㅤ├── database.py                    
+ㅤ├── main.py                        
+ㅤ├── models.py                      
+ㅤ├── schemas.py                     
+ㅤ└── test_main.py                   
 
 Se recomienda utilizar un entorno virtual:
 Para crear un entorno virtual se utiliza el siguiente comando:
