@@ -32,7 +32,7 @@ https://fastapi.tiangolo.com/tutorial/sql-databases/ y a la rúbrica de evaluaci
 
 La estructura del proyecto es la siguiente:
 proyecto_python
-└── app
+└── app                                
     ├── __init__.py                    
     ├── crud.py                        
     ├── database.py                    
